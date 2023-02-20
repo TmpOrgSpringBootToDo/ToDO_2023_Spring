@@ -12,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Todo implements SuperEntity{
     @Id
+
     private Long id;
     private String toDo;
     private Date date;
