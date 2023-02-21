@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/users/{userId:[A-Fa-f0-9\\-]{36}}/todo")
 public class ToDoController {
-    private ToDoService toDoService;
+    private final ToDoService toDoService;
     public ToDoController(ToDoService toDoService){
         this.toDoService = toDoService;
     }
@@ -31,8 +31,8 @@ public class ToDoController {
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path = "/{toDoId:\\d+}")
-    public void deleteToDo (@PathVariable String userId,@PathVariable long todoId){
-        toDoService.deleteToDo(userId, todoId);
+    public void deleteToDo (@PathVariable String userId, @PathVariable long toDoId){
+        toDoService.deleteToDo(userId, toDoId);
     }
     @GetMapping(produces = "application/json")
     public List<ToDoDTO>getAllToDos(@PathVariable String userId){

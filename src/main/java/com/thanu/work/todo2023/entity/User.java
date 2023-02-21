@@ -17,5 +17,5 @@ public class User implements SuperEntity {
     private String userName;
     private String email;
     private String password;
-    private List<Todo> todoList = new ArrayList<>();
+//    private List<Todo> todoList = new ArrayList<>();
 }

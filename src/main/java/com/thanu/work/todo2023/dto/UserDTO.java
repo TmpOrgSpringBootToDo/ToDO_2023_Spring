@@ -28,5 +28,5 @@ public class UserDTO implements Serializable {
     @Length(min = 5)
     private String password;
 
-    private List<Todo> todoList;
+//    private List<Todo> todoList;
 }

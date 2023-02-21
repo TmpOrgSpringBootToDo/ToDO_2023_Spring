@@ -32,7 +32,10 @@ public class UserController {
     public void deleteUser(@PathVariable String userId){
         userService.deleteUser(userId);
     }
+
     //update user
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping(path = "/{userId}",consumes = "application/json")
     public void updateUser(@PathVariable String userId,@RequestBody UserDTO user,Errors errors){
         if(errors.hasFieldErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, errors.getFieldErrors()
@@ -42,6 +45,11 @@ public class UserController {
         userService.updateUser(user);
 
     }
+    //update user data
+
+
+
+
     //user info
     @GetMapping(path = "/{userId:[A-Fa-f0-9\\-]{36}}",produces = "application/json")
     public UserDTO getUserInfo (@PathVariable String userId){
