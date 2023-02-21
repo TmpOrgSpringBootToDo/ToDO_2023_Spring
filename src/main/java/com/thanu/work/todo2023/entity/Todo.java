@@ -12,10 +12,24 @@ import java.util.Date;
 @NoArgsConstructor
 public class Todo implements SuperEntity{
     @Id
-
     private Long id;
     private String toDo;
     private Date date;
     private Time time;
     private Boolean isCompleted = Boolean.FALSE;
+
+    private User user;
+
+    public Todo(String todo, User user) {
+        this.toDo = todo;
+        this.user = user;
+    }
+
+    public Todo(String todo, Date date, Time time, User user) {
+        this.toDo = todo;
+        this.date = date;
+        this.time = time;
+        this.user = user;
+    }
+
 }
