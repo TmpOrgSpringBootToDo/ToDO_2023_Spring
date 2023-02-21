@@ -15,6 +15,7 @@ public class User implements SuperEntity {
     @Id
     private String id;
     private String userName;
+    private String email;
     private String password;
     private List<Todo> todoList = new ArrayList<>();
 }
