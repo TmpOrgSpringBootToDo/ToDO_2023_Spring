@@ -36,6 +36,7 @@ public class UserServiceIMPL implements UserService {
         if(!tmpUser.isPresent()) throw new NotFoundException("User not found");
         tmpUser.get().setUserName(userDTO.getUserName());
         tmpUser.get().setPassword(userDTO.getPassword());
+        userRepository.save(entityToDTO.getUserEntity(userDTO));
     }
 
     @Override
