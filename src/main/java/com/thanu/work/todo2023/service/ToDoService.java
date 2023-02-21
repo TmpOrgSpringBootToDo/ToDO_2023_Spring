@@ -9,5 +9,5 @@ import java.util.List;
 public interface ToDoService {
     ToDoDTO saveToDoDetails(ToDoDTO toDoDTO) throws NotFoundException;
     List<ToDoDTO> getAllToDos(String userId);
-    void deleteToDo(String userId,int toDoId) throws NotFoundException;
+    void deleteToDo(String userId,long toDoId) throws NotFoundException;
 }

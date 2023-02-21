@@ -5,7 +5,9 @@ import com.thanu.work.todo2023.dto.UserDTO;
 import com.thanu.work.todo2023.entity.Todo;
 import com.thanu.work.todo2023.entity.User;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EntityToDTO {
     private ModelMapper modelMapper;
 
@@ -21,10 +23,11 @@ public class EntityToDTO {
     public Todo getToDoEntity(ToDoDTO toDoDTO){
         return modelMapper.map(toDoDTO, Todo.class);
     }
-//    public ToDoDTO getToDoDTO(Todo todoEntity){
-//        return modelMapper.typeMap(Todo.class, ToDoDTO.class)
-//                //.addMapping(todo -> todo.getUser().getId(),ToDoDTO)
-   // }
+    public ToDoDTO getToDoDTO(Todo todoEntity){
+        return modelMapper.typeMap(Todo.class, ToDoDTO.class)
+                .addMapping(todo -> todo.getUser().getId(),ToDoDTO::setUserId)
+                .map(todoEntity);
+    }
 
 
 
