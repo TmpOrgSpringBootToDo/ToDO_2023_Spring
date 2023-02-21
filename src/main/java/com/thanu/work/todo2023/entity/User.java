@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -15,5 +16,5 @@ public class User implements SuperEntity {
     private String id;
     private String userName;
     private String password;
-    private List<Todo> todoList;
+    private List<Todo> todoList = new ArrayList<>();
 }
