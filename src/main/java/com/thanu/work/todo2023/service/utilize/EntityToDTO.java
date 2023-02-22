@@ -25,7 +25,7 @@ public class EntityToDTO {
     }
     public ToDoDTO getToDoDTO(Todo todoEntity){
         return modelMapper.typeMap(Todo.class, ToDoDTO.class)
-                .addMapping(todo -> todo.getUser().getId(),ToDoDTO::setUserId)
+                .addMapping(todo -> todo.getUser().getId(),ToDoDTO::setUserIdTodo)
                 .map(todoEntity);
     }
 

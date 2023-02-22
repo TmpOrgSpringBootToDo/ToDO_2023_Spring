@@ -32,8 +32,8 @@ public class ToDoServiceIMPL implements ToDoService {
     @Override
     public ToDoDTO saveToDoDetails(ToDoDTO toDoDTO) throws NotFoundException {
         Todo toDoEntity = entityToDTO.getToDoEntity(toDoDTO);
-        toDoEntity.setUser(getUser(toDoDTO.getUserId()));
-        return entityToDTO.getToDoDTO(toDoRepository.save(toDoEntity));
+        toDoEntity.setUser(getUser(toDoDTO.getUserIdTodo()));
+        return entityToDTO.getToDoDTO(toDoRepository.save(entityToDTO.getToDoEntity(toDoDTO)));
     }
 
     @Override

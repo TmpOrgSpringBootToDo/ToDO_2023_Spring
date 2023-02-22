@@ -1,23 +1,23 @@
 package com.thanu.work.todo2023.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mongodb.internal.connection.Time;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Todo implements SuperEntity{
     @Id
-    private Long id;
+    private Integer toDoId;
+    private String userIdTodo;
     private String toDo;
-    private Date date;
-    private Time time;
-    private Boolean isCompleted = Boolean.FALSE;
-
+    private String email;
     private User user;
 
     public Todo(String todo, User user) {
@@ -25,11 +25,5 @@ public class Todo implements SuperEntity{
         this.user = user;
     }
 
-    public Todo(String todo, Date date, Time time, User user) {
-        this.toDo = todo;
-        this.date = date;
-        this.time = time;
-        this.user = user;
-    }
 
 }
