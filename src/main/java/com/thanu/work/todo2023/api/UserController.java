@@ -43,12 +43,7 @@ public class UserController {
         }
         user.setId(userId);
         userService.updateUser(user);
-
     }
-    //update user data
-
-
-
 
     //user info
     @GetMapping(path = "/{userId:[A-Fa-f0-9\\-]{36}}",produces = "application/json")

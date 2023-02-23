@@ -1,6 +1,7 @@
 package com.thanu.work.todo2023.service.implService;
 
 import com.thanu.work.todo2023.dto.ToDoDTO;
+import com.thanu.work.todo2023.dto.UserDTO;
 import com.thanu.work.todo2023.entity.Todo;
 import com.thanu.work.todo2023.entity.User;
 import com.thanu.work.todo2023.excptions.NotFoundException;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,6 +38,14 @@ public class ToDoServiceIMPL implements ToDoService {
         return entityToDTO.getToDoDTO(toDoRepository.save(entityToDTO.getToDoEntity(toDoDTO)));
     }
 
+    //update tododata
+    public void updateToDO(ToDoDTO todoDTO) throws NotFoundException {
+        Optional<Todo> tmpTodo = toDoRepository.findById(todoDTO.getToDoId());
+        if(!tmpTodo.isPresent()) throw new NotFoundException("To Do not found");
+        tmpTodo.get().setToDo(todoDTO.getToDo());
+        tmpTodo.get().setDateTime(todoDTO.getDateTime());
+    }
+
     @Override
     public List<ToDoDTO> getAllToDos(String userId) {
         return toDoRepository.findAllToDosByUser(getUser(userId))
@@ -43,7 +53,7 @@ public class ToDoServiceIMPL implements ToDoService {
     }
 
     @Override
-    public void deleteToDo(String userId, long toDoId) throws NotFoundException {
+    public void deleteToDo(String userId, int toDoId) throws NotFoundException {
         Todo todo =
                 toDoRepository.findById(toDoId).orElseThrow(() -> new NotFoundException("Invalid ToDo"));
                 if(getUser(userId) != todo.getUser()){

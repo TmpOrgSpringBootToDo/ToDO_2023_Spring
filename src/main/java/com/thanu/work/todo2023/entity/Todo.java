@@ -1,23 +1,31 @@
 package com.thanu.work.todo2023.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.mongodb.internal.connection.Time;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Todo implements SuperEntity{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer toDoId;
-    private String userIdTodo;
+
+    @Column(nullable = false)
     private String toDo;
-    private String email;
+    @Column(name = "dateand_Time")
+    private LocalDateTime dateTime;
+
+    @ManyToOne
+    @JoinColumn(name = "userId",referencedColumnName = "id",nullable = false)
     private User user;
 
     public Todo(String todo, User user) {
