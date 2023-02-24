@@ -18,8 +18,11 @@ security settings with match to the authentication and authorization process (Te
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
 ## Documentation
-https://documenter.getpostman.com/view/20424985/UzJFvJ6b
-https://documenter.getpostman.com/view/20424985/UzJFvJ6c
+
+### [CRUD operations of the User](https://documenter.getpostman.com/view/20424985/UzJFvJ6b)
+### [CRUD operations of the ToDo](https://documenter.getpostman.com/view/20424985/UzJFvJ6c)
+
+
 
 ## Licence
 [MIT](./License.txt) License 
