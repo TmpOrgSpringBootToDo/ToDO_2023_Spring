@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("api/v1/users/{userId:[A-Fa-f0-9\\-]{36}}/todo")
 public class ToDoController {
@@ -29,7 +29,7 @@ public class ToDoController {
            throw new ResponseStatusException(HttpStatus.CONFLICT,"User id is mismatch");
            return toDoService.saveToDoDetails(toDoDTO);
     }
-    //update todo
+
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping(path = "/{toDoId}",consumes = "application/json")
     public void updateToDo(@PathVariable int toDoId, @RequestBody ToDoDTO toDoDTO, Errors errors){
@@ -40,11 +40,6 @@ public class ToDoController {
         toDoDTO.setToDoId(toDoId);
         toDoService.updateToDO(toDoDTO);
     }
-
-
-
-
-
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path = "/{toDoId:\\d+}")

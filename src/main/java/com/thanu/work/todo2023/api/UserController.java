@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("api/v1/users")
+
 public class UserController {
     private final UserService userService;
     public UserController(UserService userService){
@@ -18,6 +19,7 @@ public class UserController {
 
     //create user
     @ResponseStatus(HttpStatus.CREATED)
+
     @PostMapping(consumes = "application/json",produces = "application/json")
     public UserDTO registerUser(@RequestBody @Validated UserDTO user, Errors errors){
         if(errors.hasFieldErrors()){

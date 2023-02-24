@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+
 
 @SpringBootApplication
 public class Todo2023Application {
@@ -16,10 +18,35 @@ public class Todo2023Application {
 	return new ModelMapper();
 
 }
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(Todo2023Application.class, args);
 	}
+//@Bean
+//	public SecurityFilterChain securityFilterChain(HttpSecurity security) throws Exception {
+//		return security.authorizeHttpRequests()
+//				.requestMatchers(HttpMethod.POST, "api/v1/users")
+//				.permitAll()
+//				.anyRequest()
+//				.authenticated().and()
+//				.csrf().disable()
+//				.httpBasic().and()
+//				.formLogin().and()
+//				.build();
+//	}
+//
+//	@Bean
+//	public PasswordEncoder passwordEncoder(){
+//		return new PasswordEncoder() {
+//			@Override
+//			public String encode(CharSequence rawPassword) {
+//				return rawPassword.toString();
+//			}
+//
+//			@Override
+//			public boolean matches(CharSequence rawPassword, String encodedPassword) {
+//				return rawPassword.toString().matches(encodedPassword);
+//			}
+//		};
+//	}
 
 }

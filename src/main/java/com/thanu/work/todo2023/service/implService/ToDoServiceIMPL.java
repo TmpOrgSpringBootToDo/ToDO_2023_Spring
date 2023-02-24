@@ -1,7 +1,6 @@
 package com.thanu.work.todo2023.service.implService;
 
 import com.thanu.work.todo2023.dto.ToDoDTO;
-import com.thanu.work.todo2023.dto.UserDTO;
 import com.thanu.work.todo2023.entity.Todo;
 import com.thanu.work.todo2023.entity.User;
 import com.thanu.work.todo2023.excptions.NotFoundException;
@@ -41,7 +40,7 @@ public class ToDoServiceIMPL implements ToDoService {
     //update tododata
     public void updateToDO(ToDoDTO todoDTO) throws NotFoundException {
         Optional<Todo> tmpTodo = toDoRepository.findById(todoDTO.getToDoId());
-        if(!tmpTodo.isPresent()) throw new NotFoundException("To Do not found");
+        if (!tmpTodo.isPresent()) throw new NotFoundException("To Do not found");
         tmpTodo.get().setToDo(todoDTO.getToDo());
         tmpTodo.get().setDateTime(todoDTO.getDateTime());
     }
@@ -54,15 +53,18 @@ public class ToDoServiceIMPL implements ToDoService {
 
     @Override
     public void deleteToDo(String userId, int toDoId) throws NotFoundException {
-        Todo todo =
-                toDoRepository.findById(toDoId).orElseThrow(() -> new NotFoundException("Invalid ToDo"));
-                if(getUser(userId) != todo.getUser()){
-                    toDoRepository.deleteById(toDoId);
-                    throw new UnauthorizedAccessException("Not allow to delete");
-                }
+        Todo todo = toDoRepository
+                .findById(toDoId)
+                .orElseThrow(() -> new NotFoundException("Invalid ToDo")
+                );
+        if (getUser(userId) == todo.getUser()) {
+            toDoRepository.deleteById(toDoId);
+        }else{
+            throw new UnauthorizedAccessException("Not allow to delete");
+        }
     }
 
-    private User getUser(String userId){
-        return userRepository.findById(userId).orElseThrow(()->new NotFoundException("User not found"));
+    private User getUser(String userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User not found"));
     }
 }
