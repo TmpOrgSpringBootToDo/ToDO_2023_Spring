@@ -22,7 +22,9 @@ security settings with match to the authentication and authorization process (Te
 ### [CRUD operations of the User](https://documenter.getpostman.com/view/20424985/UzJFvJ6b)
 ### [CRUD operations of the ToDo](https://documenter.getpostman.com/view/20424985/UzJFvJ6c)
 
-
+## Temporary / Testing Username and Password for front end is:
+## Username : a
+## password: b
 
 ## Licence
 [MIT](./License.txt) License 
