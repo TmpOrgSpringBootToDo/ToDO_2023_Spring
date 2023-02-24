@@ -23,6 +23,8 @@ public class Todo implements SuperEntity{
     private String toDo;
     @Column(name = "dateand_Time")
     private LocalDateTime dateTime;
+    @Column(name = "isComplete")
+    private Boolean isComplete;
 
     @ManyToOne
     @JoinColumn(name = "userId",referencedColumnName = "id",nullable = false)

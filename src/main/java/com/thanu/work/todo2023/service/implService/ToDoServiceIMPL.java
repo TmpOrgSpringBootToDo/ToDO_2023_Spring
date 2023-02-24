@@ -43,6 +43,7 @@ public class ToDoServiceIMPL implements ToDoService {
         if (!tmpTodo.isPresent()) throw new NotFoundException("To Do not found");
         tmpTodo.get().setToDo(todoDTO.getToDo());
         tmpTodo.get().setDateTime(todoDTO.getDateTime());
+        tmpTodo.get().setIsComplete(todoDTO.getIsComplete());
     }
 
     @Override

@@ -24,5 +24,6 @@ public class ToDoDTO implements Serializable {
     @NotBlank(message = "To do can not be an empty value")
     private String toDo;
     private LocalDateTime dateTime;
+    private Boolean isComplete;
 
 }
