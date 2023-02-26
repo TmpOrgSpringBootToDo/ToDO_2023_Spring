@@ -9,4 +9,5 @@ public interface UserService {
     void updateUser(UserDTO userDTO) throws NotFoundException;
     UserDTO getUserInfo(String userId) throws NotFoundException;
     void deleteUser(String userId) throws NotFoundException;
+    UserDTO chkUser(String email,String password) throws NotFoundException;
 }

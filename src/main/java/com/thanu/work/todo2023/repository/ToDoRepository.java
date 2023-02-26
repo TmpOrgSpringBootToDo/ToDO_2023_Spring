@@ -10,4 +10,6 @@ public interface ToDoRepository extends CrudRepository<Todo,Integer> {
     List<Todo> findAllToDosByUser(User user);
 
     long countToDosByUser(User user);
+
+
 }

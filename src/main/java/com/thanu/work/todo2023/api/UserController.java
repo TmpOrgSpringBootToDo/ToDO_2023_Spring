@@ -20,7 +20,6 @@ public class UserController {
 
     //create user
     @ResponseStatus(HttpStatus.CREATED)
-
     @PostMapping(consumes = "application/json",produces = "application/json")
     public UserDTO registerUser(@RequestBody @Validated UserDTO user, Errors errors){
         if(errors.hasFieldErrors()){
@@ -29,6 +28,13 @@ public class UserController {
 
         } return userService.registerUser(user);
     }
+    //logging process
+
+    @GetMapping(path = "/{email}/{password}",produces = "application/json")
+    public UserDTO chkUser (@PathVariable String email, @PathVariable String password){
+        return userService.chkUser(email,password);
+    }
+
     //delete user
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(path = "/{userId:[A-Fa-f0-9\\-]{36}}")

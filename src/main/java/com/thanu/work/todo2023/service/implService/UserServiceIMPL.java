@@ -29,6 +29,16 @@ public class UserServiceIMPL implements UserService {
         userDTO.setId(UUID.randomUUID().toString());
         return entityToDTO.getUserDTO(userRepository.save(entityToDTO.getUserEntity(userDTO)));
     }
+    //logging process
+    @Override
+    public UserDTO chkUser(String email,String password) throws NotFoundException {
+        if(userRepository.existsUsersByEmailAndPassword(email,password)){
+            User user = userRepository.findByEmail(email);
+            return userRepository.findById(user.getId()).map(entityToDTO::getUserDTO)
+                    .orElseThrow(() -> new NotFoundException("Invalid User"));
+        }
+        throw new NotFoundException("Invalid User");
+    }
 
     @Override
     public void updateUser(UserDTO userDTO) throws NotFoundException {
@@ -51,4 +61,6 @@ public class UserServiceIMPL implements UserService {
       userRepository.deleteById(userId);
       //getUserInfo(userId);
     }
+
+
 }
