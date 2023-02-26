@@ -3,11 +3,12 @@
 
 Important: A login process based on local storage and DB has ready to this project.
 Please switch to [feat/2/loginhandleAPI](https://github.com/TmpOrgSpringBootToDo/ToDO_2023_Spring)for the latest updates.
-No need any temp password and login your own credentials. Before use, please config your mysql credentials at the API.
+No need any temp password and login your own credentials. Before using, please config your mysql credentials at the API.
 
 ## Introduction
-This REST API create for CRUD operations of a ToDo application that has been developed. Further,here applied
-security settings with match to the authentication and authorization process (Temporally disabled).
+This REST API creates for CRUD operations of a ToDo application that has been developed.Further, here applied 
+basic security settings for maintain dedicated to-do s for each user and here it is a function with the DB-based.
+It will be developed as a token-based system in the next version after evaluating this version.
 ## TechStack
 #### Java
 #### Spring Boot 3.0.2
