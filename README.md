@@ -1,5 +1,10 @@
 # ToDoViewer - V.1.0.0
 ## Todo Management Application
+
+Important: A login process based on local storage and DB has ready to this project.
+Please switch to [feat/2/loginhandleAPI](https://github.com/TmpOrgSpringBootToDo/ToDO_2023_Spring)for the latest updates.
+No need any temp password and login your own credentials. Before use, please config your mysql credentials at the API.
+
 ## Introduction
 This REST API create for CRUD operations of a ToDo application that has been developed. Further,here applied
 security settings with match to the authentication and authorization process (Temporally disabled).
@@ -21,10 +26,6 @@ security settings with match to the authentication and authorization process (Te
 
 ### [CRUD operations of the User](https://documenter.getpostman.com/view/20424985/UzJFvJ6b)
 ### [CRUD operations of the ToDo](https://documenter.getpostman.com/view/20424985/UzJFvJ6c)
-
-## Temporary / Testing Username and Password for front end is:
-## Username : a
-## password: b
 
 ## Licence
 [MIT](./License.txt) License 
